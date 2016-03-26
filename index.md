@@ -1,7 +1,7 @@
 ---
 layout: home
-excerpt: "A minimal Jekyll theme for your blog by designer Michael Rose."
-tags: [Jekyll, theme, responsive, blog, template]
+excerpt: "A blog by M. Nabeel Arif on mobile development."
+tags: [nabeelarif, iOS blog]
 image:
   feature: banner-image-main.jpg
   credit: Pixabay
