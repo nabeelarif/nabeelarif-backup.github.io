@@ -3,8 +3,8 @@ layout: post
 title: "OCLint integration in XCode with xctool"
 excerpt: "A detailed overview of OCLint as static analyzer with XCode"
 tags: [oclint, static analyzer, xcode]
-modified: 2016-05-26
-comments: true
+modified: 2016-05-28
+comments: false
 ---
 {% include _toc.html %}
 
@@ -15,7 +15,7 @@ Even the experienced programmers sometimes can't foresee the issues embedded in 
 OCLint comes with a huge list of options which are way too lengthy anc can't be covered in a single reading. In this tutorial we will cover best configurations suggeted by OCLint documentation for XCode project.
 
 #About OCLint
-OCLInt stands for ??, developed by person company.
+<!--OCLInt stands for ??, developed by person company.-->
 
 [OCLint](http://oclint.org/) is a static analyzer for C, C++ and objective c. The [documentation](http://docs.oclint.org/en/stable/) to kick off your relationship with OCLint is huge and you will be jumping from one page to another in pursuit of something, something digestible. In this tutorial our goal is to Install, Integrate & View Analysis report of OCLint in XCode objective-c project. 
 
@@ -96,7 +96,7 @@ It is great that OCLint provides us optiosn to specify each file's configuration
 </figure>
 
 <figure>
-<figcaption>Name the target OCLint</figcaption>
+<figcaption>Name the target OCLint.</figcaption>
 <a href="/images/OCLintInXCodeAndXCTool/XCodeNewAggregateTarget2.png"><img src="/images/OCLintInXCodeAndXCTool/XCodeNewAggregateTarget2.png"></a>
 </figure>
 
@@ -117,54 +117,51 @@ BUILD_PATH=${TARGET_TEMP_DIR}
 #Check whether OCLint exists or not
 hash oclint &> /dev/null
 if [ $? -eq 1 ]; then
-echo "oclint not found, analyzing stopped"
+echo "OCLint not found, analyzing stopped"
 exit 1
 else
-echo "Is installed"
+echo "OCLint is installed"
 fi
 #Navigate to build path directory
 cd ${BUILD_PATH}
 
 if [ ! -f compile_commands.json ]; then
 echo "compile_commands.json not found, possibly clean was performed";
-echo "starting xcodebuild to rebuild the project..";
+else
+echo "Removing compile_commands.json"
+rm compile_commands.json
 fi
 # clean previous output
 if [ -f xcodebuild.log ]; then
+echo "Removing xcodebuild.log"
 rm xcodebuild.log
 fi
 
 cd ${SRCROOT}
 
-#Clean the project
-xctool -project DemoOCLintTargetInProject.xcodeproj \
--configuration Debug -scheme DemoOCLintTargetInProject \
--sdk iphonesimulator clean
-#Build project
+#Clean, Build and generate compile_commands.json project
 xctool -project DemoOCLintTargetInProject.xcodeproj \
 -configuration Debug -scheme DemoOCLintTargetInProject \
 -sdk iphonesimulator  \
--reporter json-compilation-database:${BUILD_PATH}/compile_commands.json build
+-reporter json-compilation-database:${BUILD_PATH}/compile_commands.json clean build
 
-echo "starting analyzing"
+echo "Starting analyzing"
 cd ${BUILD_PATH}
-oclint-json-compilation-database -e Pods oclint_args oclint_args \
+oclint-json-compilation-database -v -e Pods oclint_args \
 "-max-priority-1=$maxPriority -max-priority-2=$maxPriority \
 -max-priority-3=$maxPriority -rc LONG_LINE=500 \
 -rc LONG_VARIABLE_NAME=100  -disable-rule=UnusedMethodParameter" \
 | sed 's/\(.*\.\m\{1,2\}:[0-9]*:[0-9]*:\)/\1 warning:/'
+
 ~~~
 
 #Sample project
 [DemoOCLintTargetInProject](https://github.com/nabeelarif/DemoOCLintTargetInProject) is the project we used for above demo and is published on git.
 
-Purpose of document
-Intended audience
-
-#Where to go from here?
-
-#Wanna Master OCLint?
-
-#TODO
-- http://codingfingers.com/index.html%3Fp=11065.html
-- https://gavrix.wordpress.com/2013/02/28/integrating-oclint-in-xcode/
+<!--#Where to go from here?-->
+<!---->
+<!--#Wanna Master OCLint?-->
+<!---->
+<!--#TODO-->
+<!--- http://codingfingers.com/index.html%3Fp=11065.html-->
+<!--- https://gavrix.wordpress.com/2013/02/28/integrating-oclint-in-xcode/-->
