@@ -3,7 +3,7 @@ layout: post
 title: "OCLint integration in XCode with xctool"
 excerpt: "A detailed overview of OCLint as static analyzer with XCode"
 tags: [oclint, static analyzer, xcode]
-modified: 2016-05-28
+modified: 2016-03-28
 comments: false
 ---
 {% include _toc.html %}
