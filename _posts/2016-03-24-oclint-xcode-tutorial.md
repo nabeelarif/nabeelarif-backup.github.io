@@ -8,18 +8,18 @@ comments: false
 ---
 {% include _toc.html %}
 
-In a hurry to do things fast and meet monster deadlines, developers keep the book of best practices aside and start coding. The result can lead to unexpected behavior in your project along with highlty unmanaged code. Start following best practices of coding, with time it will become a habit.
+In a hurry to do things fast and meet monster deadlines, developers keep the book of best practices aside and start coding. The result can lead to unexpected behavior in your project along with highly unmanaged code. Start following best practices of coding, with time it will become a habit.
 
 Even the experienced programmers sometimes can't foresee the issues embedded in their code. 
 
-OCLint comes with a huge list of options which are way too lengthy anc can't be covered in a single reading. In this tutorial we will cover best configurations suggeted by OCLint documentation for XCode project.
+OCLint comes with a huge list of options which are way too lengthy anc can't be covered in a single reading. In this tutorial we will cover best configurations suggested by OCLint documentation for XCode project.
 
 #About OCLint
 <!--OCLInt stands for ??, developed by person company.-->
 
 [OCLint](http://oclint.org/) is a static analyzer for C, C++ and objective c. The [documentation](http://docs.oclint.org/en/stable/) to kick off your relationship with OCLint is huge and you will be jumping from one page to another in pursuit of something, something digestible. In this tutorial our goal is to Install, Integrate & View Analysis report of OCLint in XCode objective-c project. 
 
-#Prerequisiste
+#Prerequisite
 - [Homebrew](http://brew.sh/)
 - [xctool](https://github.com/facebook/xctool)
 - XCode
@@ -71,7 +71,7 @@ export PATH=$OCLINT_HOME/bin:$PATH
 {% endhighlight %}
 
 ####Verify Installation
-Check whether installation is successfull. If you see the output listed below, congratulations you did it.
+Check whether installation is successful. If you see the output listed below, congratulations you did it.
 
 {% highlight text %}
 $ oclint
@@ -86,7 +86,7 @@ Must specify at least 1 positional arguments: See: oclint -help
 OCLint comes with rich set of options which you can use with 'oclint' command. In terminal type `$ ocline --help` to get detailed list of configurations.
 
 ####2. oclint-json-compilation-database
-It is great that OCLint provides us optiosn to specify each file's configurations. But in practical life our projects contains hurndreds of files and it will give you a headache to do this manually. Here comes the solution `oclint-json-compilation-database`
+It is great that OCLint provides us options to specify each file's configurations. But in practical life our projects contains hundreds of files and it will give you a headache to do this manually. Here comes the solution `oclint-json-compilation-database`
 
 #Integration with XCode
 
