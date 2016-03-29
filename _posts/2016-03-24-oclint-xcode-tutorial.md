@@ -14,20 +14,20 @@ Even the experienced programmers sometimes can't foresee the issues embedded in 
 
 OCLint comes with a huge list of options which are way too lengthy anc can't be covered in a single reading. In this tutorial we will cover best configurations suggested by OCLint documentation for XCode project.
 
-#About OCLint
+# About OCLint
 <!--OCLInt stands for ??, developed by person company.-->
 
 [OCLint](http://oclint.org/) is a static analyzer for C, C++ and objective c. The [documentation](http://docs.oclint.org/en/stable/) to kick off your relationship with OCLint is huge and you will be jumping from one page to another in pursuit of something, something digestible. In this tutorial our goal is to Install, Integrate & View Analysis report of OCLint in XCode objective-c project. 
 
-#Prerequisite
+# Prerequisite
 - [Homebrew](http://brew.sh/)
 - [xctool](https://github.com/facebook/xctool)
 - XCode
 - OSX
 
-#Installation
+# Installation
 
-####1. Homebrew, Easy and Recommended
+#### 1. Homebrew, Easy and Recommended
 
 If [homebrew](http://brew.sh/) is configured on your system, you can use [homebrew tap](https://github.com/oclint/homebrew-formulae) for oclint.
 
@@ -50,7 +50,7 @@ $ brew upgrade oclint
 {% endhighlight %}
 
 
-####2. Download
+#### 2. Download
 Ignore it if you have completed installation via Homebrew. 
 
 Go to [OCLint Releases](https://github.com/oclint/oclint/releases) on github and download latest oclint-{versionno-architecture-OS}.zip/.tar.zip. Extract the files.
@@ -62,7 +62,7 @@ Go to [OCLint Releases](https://github.com/oclint/oclint/releases) on github and
   |--lib (Contains clang static analyzer, reporters and rules library)
 {% endhighlight %}
 
-####Set Path
+#### Set Path
 Once installation is complete you can set path in terminal
 
 {% highlight text %}
@@ -70,7 +70,7 @@ OCLINT_HOME=/path/to/oclint-x.y.z
 export PATH=$OCLINT_HOME/bin:$PATH
 {% endhighlight %}
 
-####Verify Installation
+#### Verify Installation
 Check whether installation is successful. If you see the output listed below, congratulations you did it.
 
 {% highlight text %}
@@ -80,15 +80,15 @@ Must specify at least 1 positional arguments: See: oclint -help
 {% endhighlight %}
 
 
-#OCLint Commands 
+# OCLint Commands 
 
-####1. oclint
+#### 1. oclint
 OCLint comes with rich set of options which you can use with 'oclint' command. In terminal type `$ ocline --help` to get detailed list of configurations.
 
-####2. oclint-json-compilation-database
+#### 2. oclint-json-compilation-database
 It is great that OCLint provides us options to specify each file's configurations. But in practical life our projects contains hundreds of files and it will give you a headache to do this manually. Here comes the solution `oclint-json-compilation-database`
 
-#Integration with XCode
+# Integration with XCode
 
 <figure>
 <figcaption>1. Create a new aggregate Target</figcaption>
@@ -155,7 +155,7 @@ oclint-json-compilation-database -v -e Pods oclint_args \
 
 ~~~
 
-#Sample project
+# Sample project
 [DemoOCLintTargetInProject](https://github.com/nabeelarif/DemoOCLintTargetInProject) is the project we used for above demo and is published on git.
 
 <!--#Where to go from here?-->
